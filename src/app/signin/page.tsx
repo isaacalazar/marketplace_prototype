@@ -21,7 +21,7 @@ export default function Signup() {
       const res = await signIn(email, password);
       if (res?.user) {
         console.log("User signed in:", res.user);
-        router.push("/dashboard"); // Redirect after successful login
+        router.push("/home");
       }
     } catch (error) {
       console.error("Sign-in error:", error);
@@ -61,8 +61,6 @@ export default function Signup() {
             <Button type="submit" className="mt-12 bg-black text-white">
               Sign In
             </Button>
-
-          
           </div>
         </div>
       </form>
