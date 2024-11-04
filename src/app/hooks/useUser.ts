@@ -9,7 +9,7 @@ export function useUser() {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
       setUser(firebaseUser || null);
     });
-
+    console.log("sent a request", user);
     return () => unsubscribe();
   }, []);
 

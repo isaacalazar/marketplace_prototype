@@ -17,7 +17,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-const protectedRoutes = ["/dashboard"];
+const protectedRoutes = ["/home", "/listing"];
 export default function RootLayout({
   children,
 }: Readonly<{

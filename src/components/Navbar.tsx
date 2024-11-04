@@ -2,20 +2,23 @@ import React from "react";
 import Link from "next/link";
 import { useUser } from "@/app/hooks/useUser";
 import { Button } from "./ui/button";
-import { ReactFormState } from "react-dom/client";
 import { signOut } from "firebase/auth";
 import { auth } from "@/app/firebase/config";
-import { useSignOut } from "react-firebase-hooks/auth";
+import { Router } from "next/router";
+import { redirect, useRouter } from "next/navigation";
 
 export const Navbar = () => {
   const user = useUser();
-
-  const handleSignOut = async (e: React.FormEvent) => {
+  const router = useRouter();
+  const handleSignOut = async (e: React.MouseEvent) => {
     e.preventDefault();
+    console.log("sent log out");
     try {
       await signOut(auth);
-      console.log("Signed out ");
+      console.log("Signed out");
+      router.replace("/signin");
     } catch (error) {
+      console.log(error);
       console.log("Trouble signing out");
     }
   };
@@ -27,14 +30,19 @@ export const Navbar = () => {
           <Link href="/home">Collegio</Link>
         </div>
 
-        <div className="hidden md:block text-sm md:text-lg space-x-6 aspect-auto font-medium">
+        <div className="text-sm md:text-lg space-x-6 font-medium">
           <Link href="/listings">Listings</Link>
           <Link href="/dashboard">Dashboard</Link>
           <Link href="/about">About</Link>
           {!user || user === null ? (
-            <Link href="/signin"> Sign Up</Link>
+            <Button
+              className="w-24 text-white text-base"
+              onClick={handleSignOut}
+            >
+              Sign out
+            </Button>
           ) : (
-            <Button className="w-20" onSubmit={handleSignOut}>
+            <Button className="w-20" onClick={handleSignOut}>
               Sign out
             </Button>
           )}
