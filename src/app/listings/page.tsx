@@ -2,7 +2,7 @@ import ProductCard from "@/components/product/ProductCard";
 
 export default function Marketplace() {
   const sampleProductData = {
-    id: "1",
+    id: 1,
     seller: "John Doe",
     name: "Sample Product",
     price: 29.99,
@@ -15,7 +15,7 @@ export default function Marketplace() {
       <div className="flex justify-start mb-8">
         <p className="font-sans font-semibold text-2xl">Your listings</p>
       </div>
-      {/* Recommended Listings Section */}
+
       <div className="mb-12">
         <h2 className="font-sans font-semibold text-xl mb-4">
           Recommended Listings
