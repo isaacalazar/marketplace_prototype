@@ -1,8 +1,9 @@
 import ProductCard from "@/components/product/ProductCard";
+import { ProductType } from "../models/ProductSchema";
 
 export default function Marketplace() {
-  const sampleProductData = {
-    id: 1,
+  const sampleProductData: ProductType = {
+    id: "1",
     seller: "John Doe",
     name: "Sample Product",
     price: 29.99,

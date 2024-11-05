@@ -19,3 +19,13 @@ model User {
   password String 
   name String?
 }
+
+model Product { 
+  id String @id @default(uuid())
+  name String
+  seller String 
+  price Float 
+  description String 
+  imageUrl String? 
+  createdAt DateTime @default(now())
+}
