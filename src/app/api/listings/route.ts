@@ -1,5 +1,6 @@
-import { NextRequest } from "next/server";
+
 import { ProductSchema, ProductType } from "@/app/models/ProductSchema";
+import { NextRequest } from "next/server";
 
 export const POST = async (req: NextRequest) => {
   try {
